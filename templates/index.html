@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korean Sauna & Jjimjilbang Guide</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
     <header class="bg-light py-4 shadow-sm">
         <div class="container">
             <div class="text-center mb-3">
@@ -28,15 +29,19 @@
             </div>
         </div>
     </header>
+
     <main class="container my-5">
-        <div class="row" id="sauna-container"></div>
+        <div class="row" id="sauna-container">
+            <!-- 자바스크립트가 여기에 찜질방 카드들을 동적으로 채워넣을 것입니다. -->
+        </div>
     </main>
     
+    <!-- ▼▼▼ app.py로부터 받은 데이터를 여기에 안전하게 심습니다. ▼▼▼ -->
     <script id="sauna-data" type="application/json">
       {{ sauna_data | tojson | safe }}
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/static/script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
