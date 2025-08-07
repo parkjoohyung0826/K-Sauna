@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialize = async () => {
         try {
             // [수정됨] /api/data API를 호출하여 데이터를 가져오는 방식으로 복원합니다.
-            const response = await fetch('/api/data');
+            const response = await fetch('static/my_data.json');
             if (!response.ok) throw new Error('데이터를 불러오지 못했습니다.');
             
             allSaunas = await response.json();
